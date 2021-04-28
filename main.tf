@@ -3,9 +3,10 @@ variable "gce_ssh_pub_key_file" {}
 variable "gcp_project" {}
 variable "gcp_region" {}
 variable "gcp_zone" {}
+variable "gcp_key_file" {}
 
 provider "google" {
-  credentials = file("accesskey/service_account.json")
+  credentials = file(var.gcp_key_file)
   project = var.gcp_project
   region  = var.gcp_region
   zone    = var.gcp_zone
